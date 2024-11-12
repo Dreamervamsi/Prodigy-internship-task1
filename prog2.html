@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Londrina+Sketch&display=swap" rel="stylesheet">
+    <style>
+       body {
+            background-image: linear-gradient(120deg, lightblue, blue, blueviolet);
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+
+        }
+
+        #main {
+            background-color: #fff;
+            width: 500px;
+            min-height: 250px;
+            height: auto;
+            margin: 10% auto;
+            padding: 20px 10px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px ;
+        }
+        .edit{
+            position: absolute;
+            left:65%
+        }
+        input {
+            padding: 15px;
+            border-radius: 10px;
+            width: 270px;
+            font-size: 15px;
+            border: none;
+            outline: none;
+            margin-left: 60px;
+            background-color: lightcyan;
+        }
+        button {
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: none;
+            width: 80px;
+            background-color: rgb(255, 72, 0);
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            
+        }
+        button:hover{
+            box-shadow: 0px 0px 10px rgb(255, 76, 5);
+        }
+        .task {
+            margin-top: 20px;
+            margin-left: 60px;
+            border-radius: 10px;
+            padding:10px;
+            display: flex;
+            align-items: center;
+           
+            font-family: "Open sans", sans-serif;
+            justify-content: space-between;
+        }
+        .task i {
+            margin-right: 80px;
+            cursor: pointer;
+            
+        }
+        h1 {
+            text-align: center;
+            font-family: "Edu AU VIC WA NT Pre", cursive;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>To-Do List</h1>
+        <input id="task_input" type="text" placeholder="Enter Task">
+        &emsp;<button onclick="add()">Add</button>
+    </div>
+    <script>
+        function add() {
+            let text = document.getElementById("task_input").value.trim();
+            if (text === "") return;
+            
+            let task = document.createElement("div");
+            task.className = "task";
+            
+            let taskText = document.createElement("span");
+            taskText.innerText = text;
+            
+            
+            let del_icon = document.createElement("i");
+            del_icon.className = "fa-solid fa-trash";
+            del_icon.onclick = function() {
+                task.remove();
+            };
+            
+    
+            let edit_icon = document.createElement("i");
+            edit_icon.className = "fa-solid edit fa-edit";
+            edit_icon.onclick = function() {
+                editTask(task, taskText, edit_icon, del_icon);
+            };
+            
+            task.appendChild(taskText);
+            task.appendChild(edit_icon);
+            task.appendChild(del_icon);
+            
+            let main = document.getElementById("main");
+            main.appendChild(task);
+            
+            document.getElementById("task_input").value = "";
+        }
+
+        function editTask(task, taskText, edit_icon, del_icon) {
+            
+            let editInput = document.createElement("input");
+            editInput.type = "text";
+            editInput.value = taskText.innerText;
+            editInput.style.width = "180px";
+           
+
+            let save_icon = document.createElement("i");
+            save_icon.className = "fa-solid fa-check";
+            save_icon.style.cursor = "pointer";
+            save_icon.onclick = function() {
+                taskText.innerText = editInput.value;
+                task.replaceChild(taskText, editInput); 
+                task.replaceChild(edit_icon, save_icon);
+                task.appendChild(del_icon); 
+            };
+            
+            
+            task.replaceChild(editInput, taskText); 
+            task.replaceChild(save_icon, edit_icon); 
+            task.removeChild(del_icon); 
+        }
+    </script>
+</body>
+</html>

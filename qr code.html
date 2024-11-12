@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+        background-color:#323f3e;
+       } 
+       #qr{
+        margin:auto;
+        background-color: white;
+        width:400px;
+        height:auto;
+        min-height: 200px;
+        margin-top: 10%;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+       
+        flex-direction: column;
+        align-items: center;
+       }
+       #qr_code{
+            margin-top: 20%; 
+       }
+       h2{
+        
+        font-family: "Poppins",cursive;
+       }
+      
+       button{
+        padding:10px;
+        border-radius: 10px;
+        border: none;
+        background-color:blueviolet;
+        color:white;
+        cursor: pointer;
+       }
+       #btns{
+        display:flex;
+        gap:20px;
+        justify-content: center;
+        padding-top: 20%;
+        
+       }
+       input{
+        padding: 8px;
+        border-radius: 10px;
+        width:220px;
+        border: 1px solid black;
+       }
+    </style>
+</head>
+<body>
+    <div id="qr">
+        <h2>Qr Code Generator</h2>
+        <input type="text" placeholder="Enter Text or URL">
+        <div id="qr_img" src=""></div>
+      <div id="btns">
+        <button>Download</button>
+        <button onclick="generate()">Generate</button>
+      </div>  
+    </div>
+    <script>
+        
+        function generate(){
+            let input=document.getElementsByTagName("input")[0].value
+            let qrimg=document.getElementById("qr_img")
+            let qrcode=document.createElement("img")
+            let api="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+input
+            qrcode.src=api
+           
+            qrcode.id="qr_code"
+            qrimg.innerHTML=" "
+            qrimg.appendChild(qrcode)
+        }
+        
+    </script>
+</body>
+</html>

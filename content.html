@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        section {
+            height: 100vh;
+        }
+        #Login {
+            background-image: url("https://images.pexels.com/photos/462023/pexels-photo-462023.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #Home {
+            background-image: url("https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #About {
+            background-image: url("https://images.pexels.com/photos/18852852/pexels-photo-18852852/free-photo-of-purple-meadow-chicory-flower-with-rain-drops.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #Sign {
+            background-image: url("https://images.pexels.com/photos/3724758/pexels-photo-3724758.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            color:white;
+            text-shadow: 2px 2px black;
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+            font-size: 2em;
+        }
+        nav {
+            background-color: rgb(245, 100, 4);
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            text-align: center;
+            display: flex;
+            gap: 60px;
+            justify-content: center;
+            padding-top: 20px;            
+        }
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            font-family: "Open Sans", sans-serif;
+            color: black; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            transition: background-color 0.3s, color 0.3s; 
+        }
+        a:hover {
+            color:white;
+            background-color: rgba(255, 255, 255, 0.2); 
+            border-bottom: 2px solid white; 
+        }
+    </style>
+</head>
+<body style="height: 400vh" onscroll="cng()">
+    <nav>
+        <a href="#Home">Home</a>
+        <a href="#About">About</a>
+        <a href="#Sign">Signin</a>
+        <a href="#Login">Login</a>
+    </nav>
+    <section id="Home">
+        <h1>Hello, This is Vamsi Krishna</h1>
+    </section>
+    <section id="About">
+        <h1>This is Prodigy Infotech</h1>
+    </section>
+    <section id="Sign">
+        <h1>Task One</h1>
+    </section>
+    <section id="Login">
+        <h1>Hope you Liked it..... <br><br>Thankyou</h1>
+    </section>
+    <script>
+        function cng() {
+            const initialColor = "rgb(245, 100, 4)"; 
+
+            if (window.scrollY > 1850) {
+                document.getElementsByTagName("nav")[0].style.backgroundColor = "red";
+            } 
+            else if (window.scrollY > 1200) {
+                document.getElementsByTagName("nav")[0].style.backgroundColor = "brown";
+            }
+            else if (window.scrollY > 580) {
+                document.getElementsByTagName("nav")[0].style.backgroundColor = "lightgreen";
+            }
+            else {
+                document.getElementsByTagName("nav")[0].style.backgroundColor = initialColor;
+            }
+        }
+    </script>
+</body>
+</html>

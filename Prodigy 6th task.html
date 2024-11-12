@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #000;
+            color: white;
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            transition: background 0.3s, color 0.3s;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            margin-right: 20px;
+            font-size: 1.2em;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: hotpink;
+            transition: width 0.3s;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            padding-left: 100px;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease;
+        }
+        .hero p {
+            max-width: 600px;
+            line-height: 1.5;
+            animation: fadeIn 3s ease;
+        }
+
+        .square {
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+            border-radius: 20px;
+            background-color: transparent;
+            position: absolute;
+            right: 20%;
+            top: 25%;
+            left:65%;
+            box-shadow:0px 0px 10px red;
+            transform: rotate(45deg);
+            animation: rotateSquare 10s infinite linear;
+        }
+        .square h2{
+            text-align: center;
+            margin-top: 45%;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes rotateSquare {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding-left: 20px;
+            }
+            nav {
+                gap: 10px;
+            }
+            .square {
+                display: none;
+            }
+        }
+        section {
+            height: 100vh;
+        }
+        #Resume h1 {
+            position: relative;
+            padding-bottom:20px;
+        }
+
+#Resume h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: hotpink;
+    transition: width 0.3s ease;
+}
+#About h2 {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+#About h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: hotpink;
+}
+#Contact h2{
+    position: relative;
+    padding-bottom: 20px;
+}
+#Contact h2::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: hotpink;
+}
+#education h2{
+    position: relative;
+    padding-bottom: 20px;
+}
+#education h2::after{
+    content:' ';
+    position:absolute;
+    left:0;
+    bottom: 0;
+    width:150%;
+    height:2px;
+    background: white;
+}
+#btech {
+    position: relative;
+    padding-bottom: 10px;
+}
+#btech ::after{
+    content:' ';
+    position:absolute;
+    left:0;
+    bottom: 0;
+    width:150%;
+    height:2px;
+    background: white;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Portfolio</h2>
+        <nav>
+            <a href="#Home">Home</a>
+            <a href="#Resume">Resume</a>
+            <a href="#About">About</a>
+            <a href="#Contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="Home">
+        <h1>Hi, This is Vamsi Krishna</h1>
+        <p>I’m a web developer with a focus on crafting responsive, user-friendly websites and applications. With experience across HTML, CSS, JavaScript, and a solid foundation in React, I’m passionate about creating visually appealing designs with clean, efficient code.</p>
+        
+        <div class="square">
+            <h2>Welcome</h2>
+        </div>
+    </section>
+
+    <section id="Resume" style="padding: 6%;">
+        <h1 style=" font-size: 2.5em;" class="section-title">My Resume</h1>
+        <h2>Vamsi Krishna</h2><br>
+        <div style="display: flex;gap:30%">
+            <div>
+                <h2>Technical Skills :</h2><br>
+                <h2>Languages:</h2>
+                <li type="none">C , Python.</li><br>
+                <h2>Web <br>Technologies:</h2><br>
+                <li type="none">HTML , CSS , JavaScript , React.</li>
+                <br><h2>DataBase:</h2><br>
+                <li type="none">MySQL</li>
+            </div>
+            <div id="education">
+                <h2>Education:</h2>
+                <div id="btech">
+                    <h3>B.Tech Information Technology</h3>
+                     <p>Year Of Passing:2028</p>
+                    <p >Acharya Nagarjuna University</p>
+                </div>
+                <div id="btech">
+                    <h3>Higher Secondary School</h3>
+                     <p>Year Of Passing:2024</p>
+                    <p >Rajiv Gandhi University of Knowledge Technologies</p>
+                </div>
+                <div id="btech">
+                    <h3>Secondary School</h3>
+                     <p>Year Of Passing:2022</p>
+                    <p >M.S.M High School</p>
+                </div>
+           </div>
+        </div>
+        
+    </section>
+
+    <section id="About"  style="padding: 10%;">
+        <h2 class="section-title" style="font-size: 2.5em;">About Me</h2>
+        <p style="line-height: 30px;">Hello! I’m Vamsi Krishna, a dedicated B.Tech student at Acharya Nagarjuna University with a passion for technology, coding, and innovation. Alongside my academic journey, I’ve earned certifications in Python and Data Structures & Algorithms, giving me a solid foundation in both programming logic and technical problem-solving.
+
+            Currently, I'm working as a Web Development Intern at Prodigy InfoTech, where I apply my skills in HTML, CSS, JavaScript, and React to create responsive, user-focused applications. My approach to web development is grounded in clean, efficient code, intuitive user experience, and an eye for modern design. Proficient in multiple programming languages, I’m always eager to expand my knowledge, dive into new technologies, and refine my skill set.</p>
+    </section>
+
+    <section id="Contact"  style=" max-width: 600px;
+            line-height: 1.5;padding: 10%;">
+        <h2 class="section-title" style="font-size: 2.5em;">Get in Touch</h2>
+        <p>Are you lookin for a dedicated and skilled Web developer and designer to join in your team?Do you have an exciting project in your mind that you beleive could benefit from my expertise.Feel free to reach out to me through email or contact with me on my social media profiles.</p>
+        <br><p style="border:2px solid white;padding:15px;width:200px;border-image: linear-gradient(120deg,red,white) 1;">kvamsi.nellore@gmail.com</p>
+        <i style=" cursor:pointer;color:white;font-size: 2.5em;" class="fa-brands fa-linkedin"></i>
+        &emsp;&emsp;<i style=" cursor:pointer;color:white;font-size: 2.5em;" class="fa-brands fa-github"></i>
+        &emsp;&emsp; <i style=" cursor:pointer;color:white;font-size: 2.5em;"  class="fa-brands fa-instagram"></i>
+    </section>
+
+    <script>
+       window.addEventListener('load', function() {
+           setTimeout(() => {
+               window.scrollTo(0, 0);
+           }, 0);  
+       });
+
+       window.onscroll = function() {
+           let nav = document.querySelector("header");
+           let a=document.querySelectorAll("header a")
+           if (window.scrollY >= 90) {
+               nav.style.backgroundColor = "white";
+               nav.style.color = "black";
+               a.forEach(a =>a.style.color = "black");
+           } else {
+               nav.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+               nav.style.color = "white";
+               a.forEach(a =>a.style.color = "white")
+           }
+       }
+    </script>
+</body>
+</html>
